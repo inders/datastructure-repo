@@ -29,9 +29,10 @@ public class CleanUpThread <K,V>  extends Thread{
 
 						while (it.hasNext()) {
 							K key = it.next();
+							if (cache.get(key) == ref.get()) {
 							System.out.println("CleanupThread :: cleaning key =" + key + " value = "+ cache.get(key) + " from softCache");
 							cache.remove(key);
-
+							}
 						}
 
 					}
